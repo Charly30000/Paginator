@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .actualPage {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Normal Bootstrap -->
+    <div class="container">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <span class="page-link">Previous</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active" aria-current="page">
+                    <span class="page-link">
+                        2
+                        <span class="sr-only">(current)</span>
+                    </span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Bootstrap + Paginator generator -->
+        <nav aria-label="...">
+            <div id="paginator"></div>
+        </nav>
+
+    </div>
+
+    <script src="paginador.js"></script>
+    <script>
+
+        createPaginator(obj);
+        let obj1 = {
+            totalPages: 100,/*Needed*/
+            noActualPage: 2,/*Needed*/
+            idPaginator: "paginator",/*Needed*/
+            ulClass: "pagination",/*Needed*/
+            noElementsPerPage: 5,/*Needed*/
+            firstPage: {/*Optional*/
+                namePage: "Primera",
+                classPage: "page-item",
+                linkPage: "#/{page}",
+                linkClass: "page-link"
+            },
+            previousPage: {/*Optional*/
+                namePage: "&laquo;",
+                classPage: "page-item",
+                linkPage: "#/{page}",
+                linkClass: "page-link"
+            },
+            normalPage: {/*Needed*/
+                namePage: '{page}',
+                classPage: "page-item",
+                linkPage: "#/{page}",
+                linkClass: "page-link"
+            },
+            actualPage: {/*Needed*/
+                namePage: "{page}",
+                classPage: "page-item active",
+                linkPage: "#/{page}",
+                linkClass: "page-link"
+            },
+            nextPage: {/*Optional*/
+                namePage: "&raquo;",
+                classPage: "page-item",
+                linkPage: "#/{page}",
+                linkClass: "page-link"
+            },
+            lastPage: {/*Optional*/
+                namePage: "Última",
+                classPage: "page-item",
+                linkPage: "#/{page}",
+                linkClass: "page-link"
+            }
+
+        }
+        createPaginator(obj1);
+        /* Reduced form */
+        let obj2 = {
+            totalPages: 100,/*Needed*/
+            noActualPage: 2,/*Needed*/
+            idPaginator: "paginator",/*Needed*/
+            ulClass: "pagination",/*Needed*/
+            noElementsPerPage: 5,/*Needed*/
+            normalPage: {/*Needed*/
+                namePage: '{page}',
+                classPage: "page-item",
+                linkPage: "#/{page}",
+                linkClass: "page-link"
+            },
+            actualPage: {/*Needed*/
+                namePage: "{page}",
+                classPage: "page-item active",
+                linkPage: "#/{page}",
+                linkClass: "page-link"
+            }
+
+        }
+        createPaginator(obj2);
+    </script>
+</body>
+
+</html>
