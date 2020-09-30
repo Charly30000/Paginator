@@ -69,24 +69,31 @@ function createPaginator(obj) {
             from = obj.noFirstPage;
             to = obj.noElementsPerPage;
         } else if (obj.noActualPage >= obj.totalPages - obj.noElementsPerPage / 2) {
-            from = obj.totalPages - obj.noElementsPerPage + 1;
+            from = parseInt(obj.totalPages - obj.noElementsPerPage + 1);
+            if (from < obj.noFirstPage) {
+                from = obj.noFirstPage;
+            }
             to = obj.noElementsPerPage;
         } else {
-            from = obj.noActualPage - obj.noElementsPerPage / 2;
+            from = parseInt(obj.noActualPage - obj.noElementsPerPage / 2);
+            if (from < obj.noFirstPage) {
+                from = obj.noFirstPage;
+            }
             to = obj.noElementsPerPage;
         }
     }
-    from = parseInt(from);
-    to = parseInt(to);
-    for (let i = 0; i < to; i++) {
-        if (obj.noActualPage == from + i) {
-            createPage(obj.actualPage, ul, "page_" + (from + i), obj.noActualPage);
-            lastPageFor = obj.noActualPage;
-        } else {
-            createPage(obj.normalPage, ul, "page_" + (from + i), (from + i));
-            lastPageFor = (from + i);
+    if (obj.noElementsPerPage == 1) {
+        createPage(obj.actualPage, ul, "page_" + obj.noActualPage, obj.noActualPage);
+    } else {
+        for (let i = 0; i < to; i++) {
+            if (obj.noActualPage == from + i) {
+                createPage(obj.actualPage, ul, "page_" + (from + i), obj.noActualPage);
+            } else {
+                createPage(obj.normalPage, ul, "page_" + (from + i), (from + i));
+            }
         }
     }
+    
 
     if (obj.nextPage) {
         createPage(obj.nextPage, ul, "nextPage", obj.noActualPage + 1);
