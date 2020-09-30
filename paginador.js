@@ -76,7 +76,8 @@ function createPaginator(obj) {
             to = obj.noElementsPerPage;
         }
     }
-
+    from = parseInt(from);
+    to = parseInt(to);
     for (let i = 0; i < to; i++) {
         if (obj.noActualPage == from + i) {
             createPage(obj.actualPage, ul, "page_" + (from + i), obj.noActualPage);
