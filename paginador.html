@@ -46,13 +46,13 @@
     <script src="paginador.js"></script>
     <script>
 
-        createPaginator(obj);
+        //createPaginator(obj);
         let obj1 = {
-            totalPages: 100,/*Needed*/
-            noActualPage: 9,/*Needed*/
+            totalPages: 10,/*Needed*/
+            noActualPage: 1,/*Needed*/
             idPaginator: "paginator",/*Needed*/
             ulClass: "pagination",/*Needed*/
-            noElementsPerPage: 5,/*Needed*/
+            noElementsPerPage: 3,/*Needed*/
             firstPage: {/*Optional*/
                 namePage: "Primera",
                 classPage: "page-item",
@@ -91,6 +91,24 @@
             }
 
         }
+        createPaginator(obj1);
+        obj1.noActualPage = 2;
+        createPaginator(obj1);
+        obj1.noActualPage = 3;
+        createPaginator(obj1);
+        obj1.noActualPage = 4;
+        createPaginator(obj1);
+        obj1.noActualPage = 5;
+        createPaginator(obj1);
+        obj1.noActualPage = 6;
+        createPaginator(obj1);
+        obj1.noActualPage = 7;
+        createPaginator(obj1);
+        obj1.noActualPage = 8;
+        createPaginator(obj1);
+        obj1.noActualPage = 9;
+        createPaginator(obj1);
+        obj1.noActualPage = 10;
         createPaginator(obj1);
         /* Reduced form */
         let obj2 = {
